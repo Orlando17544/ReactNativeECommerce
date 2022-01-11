@@ -19,12 +19,26 @@ import {
 
 import SplashScreen from 'react-native-splash-screen';
 
+import { NavigationContainer } from '@react-navigation/native';
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+
+import CountrySexScreen from './src/screens/CountrySexScreen.js';
+
 const App = () => {
-  //SplashScreen.hide();
+  SplashScreen.hide();
 
   return (
-	  <View>
-	  </View>
+	  <NavigationContainer>
+	  	<Stack.Navigator initialRouteName="CountrySex"
+	  screenOptions={{
+		  headerShown: false
+	  }}>
+	  		<Stack.Screen name="CountrySex" component={CountrySexScreen} />
+	  	</Stack.Navigator>
+	  </NavigationContainer>
   );
 };
 
