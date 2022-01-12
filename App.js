@@ -26,17 +26,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 import CountrySexScreen from './src/screens/CountrySexScreen.js';
+import AppSettingsScreen from './src/screens/AppSettingsScreen.js';
 
 const App = () => {
   SplashScreen.hide();
 
   return (
 	  <NavigationContainer>
-	  	<Stack.Navigator initialRouteName="CountrySex"
-	  screenOptions={{
-		  headerShown: false
-	  }}>
-	  		<Stack.Screen name="CountrySex" component={CountrySexScreen} />
+	  	<Stack.Navigator initialRouteName="AppSettings">
+	  		<Stack.Screen name="CountrySex" component={CountrySexScreen} options={{headerShown: false}}/>
+	  		<Stack.Screen name="AppSettings" component={AppSettingsScreen} options={{ title: 'APP SETTINGS' }}/>
 	  	</Stack.Navigator>
 	  </NavigationContainer>
   );
