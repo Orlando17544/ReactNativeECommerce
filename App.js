@@ -27,15 +27,17 @@ const Stack = createNativeStackNavigator();
 
 import CountrySexScreen from './src/screens/CountrySexScreen.js';
 import AppSettingsScreen from './src/screens/AppSettingsScreen.js';
+import DeliverToScreen from './src/screens/DeliverToScreen.js';
 
 const App = () => {
   SplashScreen.hide();
 
   return (
 	  <NavigationContainer>
-	  	<Stack.Navigator initialRouteName="AppSettings">
+	  	<Stack.Navigator initialRouteName="DeliverTo">
 	  		<Stack.Screen name="CountrySex" component={CountrySexScreen} options={{headerShown: false}}/>
 	  		<Stack.Screen name="AppSettings" component={AppSettingsScreen} options={{ title: 'APP SETTINGS' }}/>
+	  		<Stack.Screen name="DeliverTo" component={DeliverToScreen} options={{ title: 'DELIVER TO' }}/>
 	  	</Stack.Navigator>
 	  </NavigationContainer>
   );
