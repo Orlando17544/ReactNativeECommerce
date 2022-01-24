@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type {Node} from 'react';
 import {
 	SafeAreaView,
@@ -29,7 +29,9 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import Flag from 'react-native-flags';
 
-const DeliverToScreen = () => {
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const DeliverToScreen = ({navigation}) => {
 
 	const COUNTRIES_DATA = [
 		{name:'Aland Islands', code:'AX'},
@@ -285,6 +287,35 @@ const DeliverToScreen = () => {
 	const [countryData, setCountryData] = useState({name: 'Mexico', code: 'MX'});
 	const [countriesData, setCountriesData] = useState(COUNTRIES_DATA);
 
+	useEffect(() => {
+		const unsubscribe = navigation.addListener('focus', () => {
+			getData();
+		});
+
+		return unsubscribe;
+	}, [navigation]);
+
+	const storeCountryData = async (value) => {  
+		try {    
+			const jsonValue = JSON.stringify(value)    
+			await AsyncStorage.setItem('countryData', jsonValue)  
+		} catch (e) {    
+			console.log(e);
+		}
+	}
+
+	const getData = async () => {  
+		try {    
+			let jsonValue = await AsyncStorage.getItem('countryData')    
+			jsonValue = jsonValue != null ? JSON.parse(jsonValue) : null;
+			if (jsonValue != null) {
+				setCountryData(jsonValue);
+			}
+		} catch(e) {    
+			console.log(e);
+		}
+	}
+
 
 	return (
 		<View style={{flex: 1, backgroundColor: '#ffffff'}}>
@@ -311,7 +342,7 @@ const DeliverToScreen = () => {
 			</View>
 			{countriesData.map((countryData) => 
 			<View key={countryData.code}>
-			<TouchableOpacity onPress={() => {setCountryData(countryData);}}>
+			<TouchableOpacity onPress={() => {storeCountryData(countryData); navigation.goBack();}}>
 			<View style={{flexDirection: 'row', alignItems: 'center', padding: 15}}>
 				<Flag code={countryData.code} size={32} type='flat'/>
 				<Text style={{color: '#2c2c2c', fontSize: 15, marginLeft: 15}}>{countryData.name}</Text>

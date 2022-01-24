@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type {Node} from 'react';
 import {
 	SafeAreaView,
@@ -24,12 +24,34 @@ import {
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const AppSettingsScreen = ({navigation}) => {
 	const [country, setCountry] = useState('Mexico');
 	const [currency, setCurrency] = useState('USD');
 	const [sizes, setSizes] = useState('US');
 	const [theme, setTheme] = useState('default');
 	const [vibrateAddCart, setVibrateAddCart] = useState(false);
+
+	useEffect(() => {
+		const unsubscribe = navigation.addListener('focus', () => {
+			getData();
+		});
+
+		return unsubscribe;
+	}, [navigation]);
+
+	const getData = async () => {  
+		try {    
+			let jsonValue = await AsyncStorage.getItem('countryData')    
+			jsonValue = jsonValue != null ? JSON.parse(jsonValue) : null;
+			if (jsonValue != null) {
+				setCountry(jsonValue.name);
+			}
+		} catch(e) {    
+			console.log(e);
+		}
+	}
 
 	return (
 		<ScrollView style={{flex: 1, marginLeft: 15}}>
