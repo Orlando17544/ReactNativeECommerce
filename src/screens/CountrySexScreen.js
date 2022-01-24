@@ -25,7 +25,7 @@ import Flag from 'react-native-flags';
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
-const CountrySexScreen = () => {
+const CountrySexScreen = ({navigation}) => {
   const [countryData, setCountryData] = useState({name: 'Mexico', code: 'MX'});
   const [currency, setCurrency] = useState('USD');
 
@@ -43,7 +43,10 @@ const CountrySexScreen = () => {
 	  			type='flat'
 	  		/>
 	  		<Text style={{color: '#000000'}}> {countryData.name}, $ {currency}</Text>
-	  		<Text style={{color: '#000000', fontWeight: 'bold'}}>    |    CHANGE</Text>
+	  		<Text style={{color: '#000000', fontWeight: 'bold'}}>    |    </Text>
+	  		<TouchableOpacity onPress={() => {navigation.navigate('AppSettings');}}>
+	  			<Text style={{color: '#000000', fontWeight: 'bold'}}>CHANGE</Text>
+	  		</TouchableOpacity>
 	  	</View>
 	  	<View style={{flex: 1, justifyContent: 'space-evenly'}}>
 	  		<TouchableOpacity style={{justifyContent: 'center', alignItems: 'center', backgroundColor: '#2d2d2d', width: screenWidth * 0.85, height: screenHeight * 0.08}}>

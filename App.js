@@ -34,7 +34,7 @@ const App = () => {
 
   return (
 	  <NavigationContainer>
-	  	<Stack.Navigator initialRouteName="DeliverTo">
+	  	<Stack.Navigator initialRouteName="CountrySex">
 	  		<Stack.Screen name="CountrySex" component={CountrySexScreen} options={{headerShown: false}}/>
 	  		<Stack.Screen name="AppSettings" component={AppSettingsScreen} options={{ title: 'APP SETTINGS' }}/>
 	  		<Stack.Screen name="DeliverTo" component={DeliverToScreen} options={{ title: 'DELIVER TO' }}/>

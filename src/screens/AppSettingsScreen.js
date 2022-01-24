@@ -24,7 +24,7 @@ import {
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
-const AppSettingsScreen = () => {
+const AppSettingsScreen = ({navigation}) => {
 	const [country, setCountry] = useState('Mexico');
 	const [currency, setCurrency] = useState('USD');
 	const [sizes, setSizes] = useState('US');
@@ -34,10 +34,12 @@ const AppSettingsScreen = () => {
 	return (
 		<ScrollView style={{flex: 1, marginLeft: 15}}>
 		<Text style={{color: '#343434', fontWeight: 'bold', marginTop: 10}}>SETUP</Text>
+		<TouchableOpacity onPress={() => {navigation.navigate('DeliverTo');}}>
 		<View style={{marginTop: 30}}>
 		<Text style={{color: '#343434'}}>Deliver to</Text>
 		<Text style={{color: '#787878', marginTop: 10}}>{country}</Text>
 		</View>
+		</TouchableOpacity>
 		<View style={{marginTop: 30}}>
 		<Text style={{color: '#343434'}}>Currency</Text>
 		<Text style={{color: '#787878', marginTop: 10}}>$ {currency}</Text>

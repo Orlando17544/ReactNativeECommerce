@@ -27,6 +27,8 @@ const screenWidth = Dimensions.get('window').width;
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
+import Flag from 'react-native-flags';
+
 const DeliverToScreen = () => {
 
 	const COUNTRIES_DATA = [
@@ -285,15 +287,42 @@ const DeliverToScreen = () => {
 
 
 	return (
-		<ScrollView style={{flex: 1, marginLeft: 15}}>
-			<View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginRight: 20, borderBottomWidth: 1}}>
+		<View style={{flex: 1, backgroundColor: '#ffffff'}}>
+			<View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginLeft: 20, marginRight: 20, borderBottomWidth: 1}}>
 			<TextInput
-				onChangeText={(inputText) => {setCountriesData(COUNTRIES_DATA.filter(COUNTRY_DATA => COUNTRY_DATA.name.includes(inputText)));}}
+				onChangeText={(inputText) => {setCountriesData(COUNTRIES_DATA.filter(COUNTRY_DATA => COUNTRY_DATA.name.toLowerCase().includes(inputText.toLowerCase())));}}
 				placeholder="SEARCH"
 			/>
-			<AntDesign name="search1" size={30} color="#900" />
+			<AntDesign name="search1" size={30} color="#999999" />
 			</View>
-		</ScrollView>
+			<ScrollView style={{marginTop: 20}}>
+			<View style={{backgroundColor: '#eeeeee', padding: 15}}>
+				<Text style={{color: '#000000', fontWeight: 'bold', fontSize: 15}}>CURRENT</Text>
+			</View>
+			<View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 15}}>
+				<View style={{flexDirection: 'row', alignItems: 'center'}}>
+				<Flag code={countryData.code} size={32} type='flat'/>
+				<Text style={{color: '#2c2c2c', fontSize: 15, marginLeft: 15}}>{countryData.name}</Text>
+				</View>
+				<AntDesign name="check" size={30} color="#186bb9" />
+			</View>
+			<View style={{backgroundColor: '#eeeeee', padding: 15}}>
+				<Text style={{color: '#000000', fontWeight: 'bold', fontSize: 15}}>COUNTRIES</Text>
+			</View>
+			{countriesData.map((countryData) => 
+			<View key={countryData.code}>
+			<TouchableOpacity onPress={() => {setCountryData(countryData);}}>
+			<View style={{flexDirection: 'row', alignItems: 'center', padding: 15}}>
+				<Flag code={countryData.code} size={32} type='flat'/>
+				<Text style={{color: '#2c2c2c', fontSize: 15, marginLeft: 15}}>{countryData.name}</Text>
+			</View>
+			</TouchableOpacity>
+			<View style={{backgroundColor: '#eeeeee', height: 1, width: '90%', alignSelf: 'center'}}/>
+			</View>
+			)
+			}
+			</ScrollView>
+		</View>
 	);
 };
 
