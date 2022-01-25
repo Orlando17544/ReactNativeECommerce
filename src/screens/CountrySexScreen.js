@@ -72,10 +72,10 @@ const CountrySexScreen = ({navigation}) => {
 		</TouchableOpacity>
 		</View>
 		<View style={{flex: 1, justifyContent: 'space-evenly'}}>
-		<TouchableOpacity style={{justifyContent: 'center', alignItems: 'center', backgroundColor: '#2d2d2d', width: screenWidth * 0.85, height: screenHeight * 0.08}}>
+		<TouchableOpacity style={{justifyContent: 'center', alignItems: 'center', backgroundColor: '#2d2d2d', width: screenWidth * 0.85, height: screenHeight * 0.08}} onPress={() => {navigation.navigate('ReviewsWarning');}}>
 		<Text style={{color: '#ffffff', fontSize: 15, fontWeight: 'bold'}}>WOMEN</Text>
 		</TouchableOpacity>
-		<TouchableOpacity style={{justifyContent: 'center', alignItems: 'center', backgroundColor: '#2d2d2d', width: screenWidth * 0.85, height: screenHeight * 0.08}}>
+		<TouchableOpacity style={{justifyContent: 'center', alignItems: 'center', backgroundColor: '#2d2d2d', width: screenWidth * 0.85, height: screenHeight * 0.08}} onPress={() => {navigation.navigate('ReviewsWarning');}}>
 		<Text style={{color: '#ffffff', fontSize: 15, fontWeight: 'bold'}}>MEN</Text>
 		</TouchableOpacity>
 		</View>
