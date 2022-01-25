@@ -27,9 +27,12 @@ const screenWidth = Dimensions.get('window').width;
 import Entypo from 'react-native-vector-icons/Entypo';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const MainScreen = ({navigation}) => {
 	const [gender, setGender] = useState('Men');
 	const [genderModal, setGenderModal] = useState(false);
+
 
 	useEffect(() => {
 		const unsubscribe = navigation.addListener('focus', () => {
@@ -77,7 +80,9 @@ const MainScreen = ({navigation}) => {
 						</TouchableOpacity>
 					</View>
 				</Modal>
-				<Entypo name="menu" size={32} color="#2b2b2b" />
+				<TouchableOpacity onPress={() => {console.log('hola')}}>
+					<Entypo name="menu" size={32} color="#2b2b2b" />
+				</TouchableOpacity>
 				<TouchableOpacity onPress={() => {setGenderModal(true);}} style={{flexDirection: 'row', alignItems: 'center', marginLeft: screenWidth * 0.05}}>
 					<Text style={{color: '#2b2b2b', fontWeight: 'bold', fontSize: 17}}>{gender.toUpperCase()}</Text>
 					<EvilIcons name="chevron-down" size={32} color="#2b2b2b" />
