@@ -29,6 +29,7 @@ import CountrySexScreen from './src/screens/CountrySexScreen.js';
 import AppSettingsScreen from './src/screens/AppSettingsScreen.js';
 import DeliverToScreen from './src/screens/DeliverToScreen.js';
 import ReviewsWarningScreen from './src/screens/ReviewsWarningScreen.js';
+import MainScreen from './src/screens/MainScreen.js';
 
 const App = () => {
   SplashScreen.hide();
@@ -40,6 +41,7 @@ const App = () => {
 	  		<Stack.Screen name="AppSettings" component={AppSettingsScreen} options={{ title: 'APP SETTINGS' }}/>
 	  		<Stack.Screen name="DeliverTo" component={DeliverToScreen} options={{ title: 'DELIVER TO' }}/>
 	  		<Stack.Screen name="ReviewsWarning" component={ReviewsWarningScreen} options={{headerShown: false}}/>
+	  		<Stack.Screen name="Main" component={MainScreen} options={{headerShown: false}}/>
 	  	</Stack.Navigator>
 	  </NavigationContainer>
   );

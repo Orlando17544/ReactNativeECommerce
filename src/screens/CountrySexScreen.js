@@ -33,13 +33,13 @@ const CountrySexScreen = ({navigation}) => {
 
 	useEffect(() => {
 		const unsubscribe = navigation.addListener('focus', () => {
-			getData();
+			getCountryData();
 		});
 
 		return unsubscribe;
 	}, [navigation]);
 
-	const getData = async () => {  
+	const getCountryData = async () => {  
 		try {    
 			let jsonValue = await AsyncStorage.getItem('countryData')    
 			jsonValue = jsonValue != null ? JSON.parse(jsonValue) : null;
@@ -47,6 +47,14 @@ const CountrySexScreen = ({navigation}) => {
 				setCountryData(jsonValue);
 			}
 		} catch(e) {    
+			console.log(e);
+		}
+	}
+
+	const storeGender = async (value) => {  
+		try {    
+			await AsyncStorage.setItem('gender', value)  
+		} catch (e) {    
 			console.log(e);
 		}
 	}
@@ -72,10 +80,10 @@ const CountrySexScreen = ({navigation}) => {
 		</TouchableOpacity>
 		</View>
 		<View style={{flex: 1, justifyContent: 'space-evenly'}}>
-		<TouchableOpacity style={{justifyContent: 'center', alignItems: 'center', backgroundColor: '#2d2d2d', width: screenWidth * 0.85, height: screenHeight * 0.08}} onPress={() => {navigation.navigate('ReviewsWarning');}}>
+		<TouchableOpacity style={{justifyContent: 'center', alignItems: 'center', backgroundColor: '#2d2d2d', width: screenWidth * 0.85, height: screenHeight * 0.08}} onPress={() => {storeGender('Women'); navigation.navigate('ReviewsWarning');}}>
 		<Text style={{color: '#ffffff', fontSize: 15, fontWeight: 'bold'}}>WOMEN</Text>
 		</TouchableOpacity>
-		<TouchableOpacity style={{justifyContent: 'center', alignItems: 'center', backgroundColor: '#2d2d2d', width: screenWidth * 0.85, height: screenHeight * 0.08}} onPress={() => {navigation.navigate('ReviewsWarning');}}>
+		<TouchableOpacity style={{justifyContent: 'center', alignItems: 'center', backgroundColor: '#2d2d2d', width: screenWidth * 0.85, height: screenHeight * 0.08}} onPress={() => {storeGender('Men'); navigation.navigate('ReviewsWarning');}}>
 		<Text style={{color: '#ffffff', fontSize: 15, fontWeight: 'bold'}}>MEN</Text>
 		</TouchableOpacity>
 		</View>

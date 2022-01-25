@@ -46,7 +46,7 @@ const ReviewsWarningScreen = ({navigation}) => {
 				</View>
 			</View>
 			</View>
-			<TouchableOpacity style={{backgroundColor: '#2d2d2d', marginBottom: screenHeight * 0.05, alignItems: 'center', padding: 15, marginLeft: screenWidth * 0.1, marginRight: screenWidth * 0.1}} onPress={() => {/*navigation.navigate();*/}}>
+			<TouchableOpacity style={{backgroundColor: '#2d2d2d', marginBottom: screenHeight * 0.05, alignItems: 'center', padding: 15, marginLeft: screenWidth * 0.1, marginRight: screenWidth * 0.1}} onPress={() => {navigation.navigate('Main');}}>
 				<Text style={{color: '#ffffff', fontWeight: 'bold', fontSize: 15}}>OK, THANKS</Text>
 			</TouchableOpacity>
 		</View>
