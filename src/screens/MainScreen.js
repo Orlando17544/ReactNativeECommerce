@@ -72,15 +72,15 @@ const MainScreen = ({navigation}) => {
 					onRequestClose={() => {setGenderModal(false);}}
 				>
 					<View style={{alignItems: 'flex-start', marginLeft: screenWidth * 0.05 + 32 + screenWidth * 0.05, marginTop: screenHeight * 0.025, backgroundColor: '#ffffff', width: screenWidth * 0.25, elevation: 5}}>
-						<TouchableOpacity onPress={() => {storeGender('Men'); setGenderModal(false);}}>
+						<TouchableOpacity onPress={() => {storeGender('Men'); setGender('Men'); setGenderModal(false);}}>
 							<Text style={{fontSize: 17, color: '#2b2b2b', padding: 15}}>Men</Text>
 						</TouchableOpacity>
-						<TouchableOpacity onPress={() => {storeGender('Women'); setGenderModal(false);}}>
+						<TouchableOpacity onPress={() => {storeGender('Women'); setGender('Women'); setGenderModal(false);}}>
 							<Text style={{fontSize: 17, color: '#2b2b2b', padding: 15}}>Women</Text>
 						</TouchableOpacity>
 					</View>
 				</Modal>
-				<TouchableOpacity onPress={() => {console.log('hola')}}>
+				<TouchableOpacity onPress={() => {navigation.openDrawer();}}>
 					<Entypo name="menu" size={32} color="#2b2b2b" />
 				</TouchableOpacity>
 				<TouchableOpacity onPress={() => {setGenderModal(true);}} style={{flexDirection: 'row', alignItems: 'center', marginLeft: screenWidth * 0.05}}>

@@ -19,7 +19,7 @@ import {
 	View,
 } from 'react-native';
 
-//import SplashScreen from 'react-native-splash-screen';
+import SplashScreen from 'react-native-splash-screen';
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -34,7 +34,7 @@ import ReviewsWarningScreen from './src/screens/ReviewsWarningScreen.js';
 import MenuScreen from './src/screens/MenuScreen.js';
 
 const App = () => {
-	//SplashScreen.hide();
+	SplashScreen.hide();
 
 	return (
 		<NavigationContainer>

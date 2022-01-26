@@ -33,11 +33,9 @@ import MainScreen from './MainScreen.js';
 const MenuScreen = ({navigation}) => {
 
 	return (
-		<NavigationContainer>
-			<Drawer.Navigator initialRouteName="Main">
-				<Drawer.Screen name="Main" component={MainScreen} />
-			</Drawer.Navigator>
-		</NavigationContainer>
+		<Drawer.Navigator initialRouteName="Main">
+			<Drawer.Screen name="Main" component={MainScreen} options={{headerShown: false}}/>
+		</Drawer.Navigator>
 	);
 };
 
@@ -48,4 +46,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default TemplateScreen;
+export default MenuScreen;
