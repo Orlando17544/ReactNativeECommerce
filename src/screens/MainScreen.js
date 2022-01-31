@@ -29,6 +29,15 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+const Tab = createMaterialTopTabNavigator();
+
+import HomeScreen from './HomeScreen.js';
+import CategoriesScreen from './CategoriesScreen.js';
+import NewInScreen from './NewInScreen.js';
+import ForYouScreen from './ForYouScreen.js';
+
 const MainScreen = ({navigation}) => {
 	const [gender, setGender] = useState('Men');
 	const [genderModal, setGenderModal] = useState(false);
@@ -93,6 +102,16 @@ const MainScreen = ({navigation}) => {
 				<EvilIcons name='search' size={32} color='#2b2b2b' style={{marginLeft: screenWidth * 0.05}}/>
 			</View>
 		</View>
+		<View style={{backgroundColor: '#f2f2f2', height: 1, width: screenWidth, alignSelf: 'center'}}/>
+		<Tab.Navigator
+			screenOptions={{
+				tabBarLabelStyle: { fontWeight: 'bold', fontSize: 10 },
+				}}>
+			<Tab.Screen name="HOME" component={HomeScreen} />
+			<Tab.Screen name="CATEGORIES" component={CategoriesScreen} />
+			<Tab.Screen name="NEW IN" component={NewInScreen} />
+			<Tab.Screen name="FOR YOU" component={ForYouScreen} />
+		</Tab.Navigator>
 		</View>
 	);
 };
