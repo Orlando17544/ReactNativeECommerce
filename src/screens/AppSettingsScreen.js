@@ -35,13 +35,13 @@ const AppSettingsScreen = ({navigation}) => {
 
 	useEffect(() => {
 		const unsubscribe = navigation.addListener('focus', () => {
-			getData();
+			getCountryData();
 		});
 
 		return unsubscribe;
 	}, [navigation]);
 
-	const getData = async () => {  
+	const getCountryData = async () => {  
 		try {    
 			let jsonValue = await AsyncStorage.getItem('countryData')    
 			jsonValue = jsonValue != null ? JSON.parse(jsonValue) : null;

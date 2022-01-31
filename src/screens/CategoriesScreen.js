@@ -23,31 +23,15 @@ import {
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
-const TemplateScreen = ({navigation}) => {
-	const [currency, setCurrency] = useState('USD');
+const CategoriesScreen = ({navigation}) => {
+	const [categories, setCategories] = useState(["SALE FINAL DISCOUNTS!", "NEW IN", "CLOTHING", "SHOES", "ACTIVEWEAR", "ACCESSORIES", "TRENDING NOW", "TOPMAN", "Face + Body", "Brands", "Outlet"]);
 
-	useEffect(() => {
-		const unsubscribe = navigation.addListener('focus', () => {
-			getData();
-		});
-
-		return unsubscribe;
-	}, [navigation]);
-
-	const getData = async () => {  
-		try {    
-			let jsonValue = await AsyncStorage.getItem('countryData')    
-			jsonValue = jsonValue != null ? JSON.parse(jsonValue) : null;
-			if (jsonValue != null) {
-				setCountryData(jsonValue);
-			}
-		} catch(e) {    
-			console.log(e);
-		}
-	}
 
 	return (
 		<View style={{flex: 1, alignItems: 'center', backgroundColor: '#FFFFFF'}}>
+			<View>
+				
+			</View>
 		</View>
 	);
 };
@@ -59,4 +43,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default TemplateScreen;
+export default CategoriesScreen;
