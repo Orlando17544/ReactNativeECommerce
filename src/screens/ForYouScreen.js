@@ -24,30 +24,23 @@ const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
 const TemplateScreen = ({navigation}) => {
-	const [currency, setCurrency] = useState('USD');
-
-	useEffect(() => {
-		const unsubscribe = navigation.addListener('focus', () => {
-			getData();
-		});
-
-		return unsubscribe;
-	}, [navigation]);
-
-	const getData = async () => {  
-		try {    
-			let jsonValue = await AsyncStorage.getItem('countryData')    
-			jsonValue = jsonValue != null ? JSON.parse(jsonValue) : null;
-			if (jsonValue != null) {
-				setCountryData(jsonValue);
-			}
-		} catch(e) {    
-			console.log(e);
-		}
-	}
 
 	return (
 		<View style={{flex: 1, alignItems: 'center', backgroundColor: '#FFFFFF'}}>
+			<View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#eeeeee', marginTop: screenHeight * 0.025}}>
+				<View style={{marginLeft: screenWidth * 0.05}}>
+					<Text style={{color: '#2d2d2d', fontWeight: 'bold'}}>{"LET'S GET PERSONAL"}</Text>
+					<Text style={{color: '#2d2d2d'}}>Sign in for your own top picks</Text>
+					<TouchableOpacity style={{backgroundColor: '#2d2d2d', padding: 5, alignItems: 'center', marginTop: screenHeight * 0.025}}>
+					<Text style={{fontWeight: 'bold', color: '#ffffff'}}>SIGN IN</Text>
+					</TouchableOpacity>
+				</View>
+				<Image
+					source={require('../../assets/style.png')}
+					resizeMode='cover'
+					style={{width: 120, height: 180, marginRight: screenWidth * 0.05}}
+				/>
+			</View>
 		</View>
 	);
 };
