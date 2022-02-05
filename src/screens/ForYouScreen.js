@@ -23,7 +23,7 @@ import {
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
-const TemplateScreen = ({navigation}) => {
+const ForYouScreen = ({navigation}) => {
 
 	return (
 		<View style={{flex: 1, alignItems: 'center', backgroundColor: '#FFFFFF'}}>
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default TemplateScreen;
+export default ForYouScreen;

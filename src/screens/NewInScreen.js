@@ -23,7 +23,7 @@ import {
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
-const TemplateScreen = ({navigation}) => {
+const NewInScreen = ({navigation}) => {
 	const [newProductsCategoriesData, setNewProductsCategoriesData] = useState([
 		{name: 'Clothing', image: require('../../assets/clothingRound.jpg')},
 		{name: 'Shoes', image: require('../../assets/shoesRound.jpg')},
@@ -108,4 +108,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default TemplateScreen;
+export default NewInScreen;
