@@ -17,6 +17,8 @@ import {
 	StyleSheet,
 	Text,
 	View,
+	TouchableOpacity,
+	TextInput
 } from 'react-native';
 
 import SplashScreen from 'react-native-splash-screen';
@@ -33,6 +35,10 @@ import DeliverToScreen from './src/screens/DeliverToScreen.js';
 import ReviewsWarningScreen from './src/screens/ReviewsWarningScreen.js';
 import MenuScreen from './src/screens/MenuScreen.js';
 import SavedItemsScreen from './src/screens/SavedItemsScreen.js';
+import SearchScreen from './src/screens/SearchScreen.js';
+
+import AntDesign from 'react-native-vector-icons/AntDesign.js';
+import FontAwesome from 'react-native-vector-icons/FontAwesome.js';
 
 const App = () => {
 	SplashScreen.hide();
@@ -45,7 +51,28 @@ const App = () => {
 		<Stack.Screen name="DeliverTo" component={DeliverToScreen} options={{ title: 'DELIVER TO' }}/>
 		<Stack.Screen name="ReviewsWarning" component={ReviewsWarningScreen} options={{headerShown: false}}/>
 		<Stack.Screen name="Menu" component={MenuScreen} options={{headerShown: false}}/>
-		<Stack.Screen name="SavedItems" component={SavedItemsScreen} options={{ title: 'SAVED ITEMS'}}/>
+		<Stack.Screen name="SavedItems" component={SavedItemsScreen} options={{ title: 'SAVED ITEMS', headerRight: () => {
+			return (
+				<TouchableOpacity>
+					<AntDesign name="plus" size={30} color="#2d2d2d"/>
+				</TouchableOpacity>
+			)
+		}
+		}}/>
+		<Stack.Screen name="Search" component={SearchScreen} options={{ headerTitle: () => {
+			return (
+				<TextInput
+					placeholder="Search for items and brands"
+				/>
+			)
+		}, headerRight: () => {
+			return (
+				<TouchableOpacity>
+					<FontAwesome name="microphone" size={30} color="#2d2d2d"/>
+				</TouchableOpacity>
+			)
+		}
+		}}/>
 		</Stack.Navigator>
 		</NavigationContainer>
 	);

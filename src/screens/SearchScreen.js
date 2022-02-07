@@ -20,11 +20,13 @@ import {
 	Dimensions
 } from 'react-native';
 
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
-const BoardsScreen = ({navigation}) => {
-	const [currency, setCurrency] = useState('USD');
+const SearchScreen = ({navigation}) => {
+	/*const [currency, setCurrency] = useState('USD');
 
 	useEffect(() => {
 		const unsubscribe = navigation.addListener('focus', () => {
@@ -44,20 +46,14 @@ const BoardsScreen = ({navigation}) => {
 		} catch(e) {    
 			console.log(e);
 		}
-	}
+	}*/
+
+	
 
 	return (
 		<View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF'}}>
-			<Image
-				source={require('../../assets/board.png')}
-				resizeMode='cover'
-				style={{width: 50, height: 50}}
-			/>
-			<Text style={{fontWeight: 'bold', color: '#2d2d2d', fontSize: 20, marginTop: screenWidth * 0.05}}>NO BOARDS</Text>
-			<Text style={{textAlign: 'center', color: '#2d2d2d', marginTop: screenWidth * 0.05}}>Group your favorite items to suit you</Text>
-			<TouchableOpacity style={{backgroundColor: '#2d2d2d', width: screenWidth * 0.80, height: screenHeight * 0.07, justifyContent: 'center', alignItems: 'center', marginTop: screenWidth * 0.05}}>
-				<Text style={{fontWeight: 'bold', color: '#ffffff', fontSize: 15}}>CREATE BOARD</Text>
-			</TouchableOpacity>
+			<EvilIcons name='search' size={35} />
+			<Text style={{fontSize: 15}}>You have no recent searches.</Text>
 		</View>
 	);
 };
@@ -69,4 +65,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default BoardsScreen;
+export default SearchScreen;

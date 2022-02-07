@@ -101,7 +101,7 @@ const MainScreen = ({navigation}) => {
 				<TouchableOpacity onPress={() => {navigation.navigate('SavedItems');}}>
 					<EvilIcons name='heart' size={32} color='#2b2b2b' />
 				</TouchableOpacity>
-				<TouchableOpacity>
+				<TouchableOpacity onPress={() => {navigation.navigate('Search')}}>
 					<EvilIcons name='search' size={32} color='#2b2b2b' style={{marginLeft: screenWidth * 0.05}}/>
 				</TouchableOpacity>
 			</View>

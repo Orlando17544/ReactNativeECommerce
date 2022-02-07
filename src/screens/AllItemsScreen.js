@@ -72,7 +72,7 @@ const AllItemsScreen = ({navigation}) => {
 			/>
 			<Text style={{fontWeight: 'bold', color: '#2d2d2d', fontSize: 20, marginTop: screenWidth * 0.05}}>NOTHING SAVED...</Text>
 			<Text style={{textAlign: 'center', color: '#2d2d2d', marginTop: screenWidth * 0.05}}>{'...no worries. Join to start saving, or sign in to see what you\'ve already saved. Shopping made way easy.'}</Text>
-			<TouchableOpacity style={{backgroundColor: '#2d2d2d', width: screenWidth * 0.60, height: screenHeight * 0.05, justifyContent: 'center', alignItems: 'center', marginTop: screenWidth * 0.05}}>
+			<TouchableOpacity style={{backgroundColor: '#2d2d2d', width: screenWidth * 0.60, height: screenHeight * 0.07, justifyContent: 'center', alignItems: 'center', marginTop: screenWidth * 0.05}}>
 				<Text style={{fontWeight: 'bold', color: '#ffffff', fontSize: 15}}>START SHOPPING</Text>
 			</TouchableOpacity>
 			</View>
