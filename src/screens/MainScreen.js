@@ -98,8 +98,12 @@ const MainScreen = ({navigation}) => {
 				</TouchableOpacity>
 			</View>
 			<View style={{flexDirection: 'row'}}>
-				<EvilIcons name='heart' size={32} color='#2b2b2b' />
-				<EvilIcons name='search' size={32} color='#2b2b2b' style={{marginLeft: screenWidth * 0.05}}/>
+				<TouchableOpacity onPress={() => {navigation.navigate('SavedItems');}}>
+					<EvilIcons name='heart' size={32} color='#2b2b2b' />
+				</TouchableOpacity>
+				<TouchableOpacity>
+					<EvilIcons name='search' size={32} color='#2b2b2b' style={{marginLeft: screenWidth * 0.05}}/>
+				</TouchableOpacity>
 			</View>
 		</View>
 		<View style={{backgroundColor: '#f2f2f2', height: 1, width: screenWidth, alignSelf: 'center'}}/>

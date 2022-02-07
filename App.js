@@ -32,6 +32,7 @@ import AppSettingsScreen from './src/screens/AppSettingsScreen.js';
 import DeliverToScreen from './src/screens/DeliverToScreen.js';
 import ReviewsWarningScreen from './src/screens/ReviewsWarningScreen.js';
 import MenuScreen from './src/screens/MenuScreen.js';
+import SavedItemsScreen from './src/screens/SavedItemsScreen.js';
 
 const App = () => {
 	SplashScreen.hide();
@@ -44,6 +45,7 @@ const App = () => {
 		<Stack.Screen name="DeliverTo" component={DeliverToScreen} options={{ title: 'DELIVER TO' }}/>
 		<Stack.Screen name="ReviewsWarning" component={ReviewsWarningScreen} options={{headerShown: false}}/>
 		<Stack.Screen name="Menu" component={MenuScreen} options={{headerShown: false}}/>
+		<Stack.Screen name="SavedItems" component={SavedItemsScreen} options={{ title: 'SAVED ITEMS'}}/>
 		</Stack.Navigator>
 		</NavigationContainer>
 	);

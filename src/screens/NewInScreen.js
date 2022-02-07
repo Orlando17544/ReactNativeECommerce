@@ -64,8 +64,8 @@ const NewInScreen = ({navigation}) => {
 					<Text style={{fontWeight: 'bold', color: '#2d2d2d', fontSize: 15}}>NEW PRODUCTS</Text>
 				</View>
 				{newProductsCategoriesData.map((newProductCategoryData) =>
-				<>
-				<View key={newProductCategoryData.name} style={{flexDirection: 'row', backgroundColor: '#ffffff', alignItems: 'center', paddingVertical: 10}}>
+				<View key={newProductCategoryData.name}>
+				<View style={{flexDirection: 'row', backgroundColor: '#ffffff', alignItems: 'center', paddingVertical: 10}}>
 					<Image
 						source={newProductCategoryData.image}
 						resizeMode='cover'
@@ -74,7 +74,7 @@ const NewInScreen = ({navigation}) => {
 					<Text style={{marginLeft: 10, color: '#2d2d2d'}}>{newProductCategoryData.name}</Text>
 				</View>
 				<View style={{backgroundColor: '#eeeeee', height: 1, width: screenWidth, alignSelf: 'center'}}/>
-				</>
+				</View>
 				)
 				}	
 			</View>
