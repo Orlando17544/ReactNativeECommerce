@@ -17,7 +17,8 @@ import {
 	View,
 	Image,
 	TouchableOpacity,
-	Dimensions
+	Dimensions,
+	TextInput
 } from 'react-native';
 
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
@@ -48,12 +49,10 @@ const SearchScreen = ({navigation}) => {
 		}
 	}*/
 
-	
-
 	return (
 		<View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF'}}>
-			<EvilIcons name='search' size={35} />
-			<Text style={{fontSize: 15}}>You have no recent searches.</Text>
+		<EvilIcons name='search' size={35} />
+		<Text style={{fontSize: 15}}>You have no recent searches.</Text>
 		</View>
 	);
 };
