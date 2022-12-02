@@ -40,8 +40,6 @@ import SearchScreen from './src/screens/SearchScreen.js';
 import AntDesign from 'react-native-vector-icons/AntDesign.js';
 import FontAwesome from 'react-native-vector-icons/FontAwesome.js';
 
-import Voice from 'react-native-voice';
-
 const App = () => {
 
 	SplashScreen.hide();
@@ -93,6 +91,7 @@ const App = () => {
 				console.log(event.error);
 			};
 
+			/*
 			const _onRecordVoice = () => {
 				if (isRecording) {
 					Voice.stop();
@@ -101,8 +100,9 @@ const App = () => {
 					Voice.start('en-US');
 				}
 				setIsRecording(!isRecording);
-			};
-
+			};*/
+			
+			/*
 			useEffect(() => {
 				Voice.onSpeechStart = _onSpeechStart;
 				Voice.onSpeechEnd = _onSpeechEnd;
@@ -112,10 +112,10 @@ const App = () => {
 				return () => {
 					Voice.destroy().then(Voice.removeAllListeners);
 				};
-			}, []);
+			}, []);*/
 
 			return (
-				<TouchableOpacity onPress={() => {_onRecordVoice();}} >
+				<TouchableOpacity onPress={() => {console.log("algo");}} >
 				<FontAwesome name="microphone" size={30} color={isRecording ? "#00FF00" : "#2d2d2d"}/>
 				</TouchableOpacity>
 			)
